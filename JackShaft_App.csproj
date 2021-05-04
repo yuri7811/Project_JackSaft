@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2632E68C-9E3F-4FF0-9CC2-992A2B45FA9E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>JackShaft_App</RootNamespace>
+    <AssemblyName>JackShaft_App</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Archaiv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archaiv.designer.cs">
+      <DependentUpon>Archaiv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bod.cs" />
+    <Compile Include="Conformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Conformation.designer.cs">
+      <DependentUpon>Conformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Password.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Password.designer.cs">
+      <DependentUpon>Form_Password.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Image_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Image_Editor.designer.cs">
+      <DependentUpon>Image_Editor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IniFile.cs" />
+    <Compile Include="KeyPad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KeyPad.designer.cs">
+      <DependentUpon>KeyPad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LN_App_Discrepancy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LN_App_Discrepancy.designer.cs">
+      <DependentUpon>LN_App_Discrepancy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loading_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loading_Form.designer.cs">
+      <DependentUpon>Loading_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QA.designer.cs">
+      <DependentUpon>QA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QA_Screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QA_Screen.designer.cs">
+      <DependentUpon>QA_Screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rack_Serial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rack_Serial.designer.cs">
+      <DependentUpon>Rack_Serial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports.designer.cs">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Jobs.cs" />
+    <Compile Include="Start_Screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Start_Screen.designer.cs">
+      <DependentUpon>Start_Screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Worker_ID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Worker_ID.designer.cs">
+      <DependentUpon>Worker_ID.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Archaiv.resx">
+      <DependentUpon>Archaiv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conformation.resx">
+      <DependentUpon>Conformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Password.resx">
+      <DependentUpon>Form_Password.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Image_Editor.resx">
+      <DependentUpon>Image_Editor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KeyPad.resx">
+      <DependentUpon>KeyPad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LN_App_Discrepancy.resx">
+      <DependentUpon>LN_App_Discrepancy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loading_Form.resx">
+      <DependentUpon>Loading_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="QA.resx">
+      <DependentUpon>QA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QA_Screen.resx">
+      <DependentUpon>QA_Screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rack_Serial.resx">
+      <DependentUpon>Rack_Serial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports.resx">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Start_Screen.resx">
+      <DependentUpon>Start_Screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Worker_ID.resx">
+      <DependentUpon>Worker_ID.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\john-deere-png-download-john-deere-png-images-transparent-gallery-advertisement-3200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NoImage.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
