@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
@@ -173,7 +169,7 @@ namespace JackShaft_App
                             + "\r\n" + dt.Rows[i][11].ToString().Trim()
 
                             + "\r\n" + dt.Rows[i][7].ToString().Trim() + "/" + dt.Rows[i][3].ToString().Trim() + "/" + dt.Rows[i][16].ToString().Trim()
-                            + "\r\n" + Convert.ToDateTime(dt.Rows[i][15]).ToString("dd/mm/yy") ;           // макат
+                            + "\r\n" + Convert.ToDateTime(dt.Rows[i][15]).ToString("dd/MM/yy") ;           // макат
 
 
                             string Picture_Link = null;
