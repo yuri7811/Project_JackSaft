@@ -23,10 +23,10 @@ namespace JackShaft_App
         string Image_;
         string UserID_;
         string Weight_;
+        string Accumulated_QTY_;
 
 
-
-        public Conformation(string Lot, string Makat, string QTY, string Task, string OPR, string Image , string UserID, string Weight)
+        public Conformation(string Lot, string Makat, string QTY, string Accumulated_QTY, string Task, string OPR, string Image , string UserID, string Weight)
         {
             InitializeComponent();
             button2.GotFocus += Button2_GotFocus;
@@ -39,6 +39,7 @@ namespace JackShaft_App
             Image_ = Image;
             UserID_ = UserID;
             Weight_ = Weight;
+            Accumulated_QTY_ = Accumulated_QTY;
         }
 
 
@@ -68,7 +69,7 @@ namespace JackShaft_App
             Lot_.Trim(),
             OPR_,
             Task_,
-            QTY_);
+            Accumulated_QTY_);
 
             Code = 0;
            Properties.Settings.Default.ConformationCode  = Code;

@@ -191,8 +191,8 @@ namespace JackShaft_App
                                 dt.Rows[i][1].ToString().Trim(),                                  // лот
                                 dt.Rows[i][2].ToString().Trim(),                                  // макат
                                 dt.Rows[i][11].ToString().Trim(),                                 // Description
-                                dt.Rows[i][7].ToString().Trim(),                                  // количество
-                                dt.Rows[i][3].ToString().Trim(),                                  // APP reported
+                                dt.Rows[i][7].ToString().Trim(),                                  // Paka QTY 
+                                dt.Rows[i][3].ToString().Trim(),                                  // LN reported
                                 1,
                                 dt.Rows[i][4].ToString().Trim(),                                  // Image Link      1
                                 dt.Rows[i][13].ToString().Trim(),                                 // Task
@@ -203,7 +203,7 @@ namespace JackShaft_App
                                 dt.Rows[i][8].ToString().Trim(),                                  // Option_4
                                 dt.Rows[i][8].ToString().Trim(),                                  // Option_5
                                 dt.Rows[i][15].ToString().Trim(),                                 // Daste
-                                dt.Rows[i][16].ToString().Trim(),                                 // AppQTY
+                                dt.Rows[i][16].ToString().Trim(),                                 // App QTY reported
                                 dt.Rows[i][17].ToString().Trim()                                  // Weith
 
                                 );
@@ -222,9 +222,16 @@ namespace JackShaft_App
                         string OriginalPatch = OriginalString;
                         string Cutting = OriginalPatch.Substring(32, OriginalPatch.Length - 32);
                         string AfterChanging = Cutting.Replace("/", @"\");
+                //  string AfterConnection = @"\\fbhczcapp1\\SFC_CLOUD\\Images\\tcibd001$\" + AfterChanging;
                         string AfterConnection = @"\\gfbhcapp1\\tcibd001$\" + AfterChanging;
+
+
                         string AfterSpaseDeleting = AfterConnection.Replace(" ", ""); ;
                         strFilePath = AfterSpaseDeleting;
+
+              //  \\fbhczcapp1\SFC_CLOUD\Images
+
+
                     }
                     return strFilePath;
 
@@ -242,22 +249,16 @@ namespace JackShaft_App
                 pictureBox1.Image = (Image)DayList_View.CurrentRow.Cells[0].Value;
                 lbl_Lot.Text = DayList_View.CurrentRow.Cells[2].Value.ToString().Trim();
                 lbl_Makat.Text = DayList_View.CurrentRow.Cells[3].Value.ToString().Trim();
-                //   txt_QTY.Text = DayList_View.CurrentRow.Cells[5].Value.ToString().Trim();
-                if (Convert.ToUInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[17].Value.ToString().Trim())) == 0 && Convert.ToUInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[6].Value.ToString().Trim())) == 0)
-                { txt_QTY.Text = DayList_View.CurrentRow.Cells[5].Value.ToString().Trim(); }
 
-                if (Convert.ToUInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[17].Value.ToString().Trim())) > Convert.ToUInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[6].Value.ToString().Trim())))
-                { txt_QTY.Text = ((Convert.ToInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[5].Value.ToString()))) - (Convert.ToInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[17].Value.ToString())))).ToString(); }
-
-                if (Convert.ToUInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[17].Value.ToString().Trim())) < Convert.ToUInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[6].Value.ToString().Trim())))
+                if (Convert.ToUInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[17].Value.ToString().Trim())) ==  Convert.ToUInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[6].Value.ToString().Trim())) )
                 { txt_QTY.Text = ((Convert.ToInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[5].Value.ToString()))) - (Convert.ToInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[6].Value.ToString())))).ToString(); }
 
-                //try
-                //{
-
-                //    txt_QTY.Text = Convert.ToString(Convert.ToUInt32(DayList_View.CurrentRow.Cells[5].Value.ToString().Trim()) - Convert.ToUInt32(DayList_View.CurrentRow.Cells[17].Value.ToString().Trim()));
-
-                //} catch { }
+                if (Convert.ToUInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[17].Value.ToString().Trim())) == 0 && Convert.ToUInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[6].Value.ToString().Trim())) == 0)
+                { txt_QTY.Text = DayList_View.CurrentRow.Cells[5].Value.ToString().Trim(); }
+                if (Convert.ToUInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[17].Value.ToString().Trim())) > Convert.ToUInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[6].Value.ToString().Trim())))
+                { txt_QTY.Text = ((Convert.ToInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[5].Value.ToString()))) - (Convert.ToInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[17].Value.ToString())))).ToString(); }
+                if (Convert.ToUInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[17].Value.ToString().Trim())) < Convert.ToUInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[6].Value.ToString().Trim())))
+                { txt_QTY.Text = ((Convert.ToInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[5].Value.ToString()))) - (Convert.ToInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[6].Value.ToString())))).ToString(); }
 
 
                 Description = DayList_View.CurrentRow.Cells[4].Value.ToString().Trim();
@@ -918,10 +919,34 @@ namespace JackShaft_App
             button21.Visible = false;
 
         }
+
+
+        private int GetAllreadyReported_QTY(string Paka)
+        {
+            int new_QTY;
+            Query = " Select  * from V_JS_Sum_Done where Lot LIKE '%" + Paka.Trim() + "%'  ";
+
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.Aplication_ConnectionString))
+            using (SqlCommand command = new SqlCommand(Query, conn))
+            {
+                conn.Open();
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(dt);
+                conn.Close();
+                dataGridView2.DataSource = dt;
+                new_QTY = Convert.ToInt32(dt.Rows[0][1]);
+
+                return new_QTY;
+            }
+
+
+        }
+
         private void button21_Click(object sender, EventArgs e)
         {
-
-            Form Conformation = new Conformation(lbl_Lot.Text, lbl_Makat.Text, txt_QTY.Text, Task_3, Opr_3, ImageLink_3, lbl_UserID.Text,Weight);
+            string QTY_Accumulated = (GetAllreadyReported_QTY(lbl_Lot.Text) + Convert.ToInt32(txt_QTY.Text)).ToString();
+            Form Conformation = new Conformation(lbl_Lot.Text, lbl_Makat.Text, txt_QTY.Text, QTY_Accumulated, Task_3, Opr_3, ImageLink_3, lbl_UserID.Text,Weight);
             Conformation.ShowDialog(this);
 
 
@@ -940,7 +965,13 @@ namespace JackShaft_App
         }
 
 
-        private void button22_Click(object sender, EventArgs e)
+    
+
+
+
+
+
+            private void button22_Click(object sender, EventArgs e)
         {
             SQL_Jobs BBB = new SQL_Jobs();
             SQL_Jobs CCC = new SQL_Jobs();
