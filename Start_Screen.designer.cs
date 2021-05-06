@@ -609,7 +609,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(118, 16);
             this.label3.TabIndex = 84;
-            this.label3.Text = "JS__Ver._3.1";
+            this.label3.Text = "JS__Ver._3.2";
             // 
             // Start_Screen
             // 

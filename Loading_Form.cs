@@ -222,14 +222,12 @@ namespace JackShaft_App
                         string OriginalPatch = OriginalString;
                         string Cutting = OriginalPatch.Substring(32, OriginalPatch.Length - 32);
                         string AfterChanging = Cutting.Replace("/", @"\");
-                //  string AfterConnection = @"\\fbhczcapp1\\SFC_CLOUD\\Images\\tcibd001$\" + AfterChanging;
-                        string AfterConnection = @"\\gfbhcapp1\\tcibd001$\" + AfterChanging;
+                        string AfterConnection = @"\\fbhczcapp1\SFC_CLOUD\Images\tcibd001" + AfterChanging;         // Test new server  
+                        //string AfterConnection = @"\\gfbhcapp1\\tcibd001$\" + AfterChanging;
 
-
-                        string AfterSpaseDeleting = AfterConnection.Replace(" ", ""); ;
+                string AfterSpaseDeleting = AfterConnection.Replace(" ", ""); ;
                         strFilePath = AfterSpaseDeleting;
 
-              //  \\fbhczcapp1\SFC_CLOUD\Images
 
 
                     }
