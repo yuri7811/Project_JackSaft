@@ -59,6 +59,10 @@ namespace JackShaft_App
         private void button2_Click(object sender, EventArgs e)
         {
 
+
+            int result = Int32.Parse(QTY_);
+
+
             Report_To_LN(Lot_, Makat_, QTY_, Task_, OPR_, Image_, UserID_, Weight_);
 
             // we generate XML code
