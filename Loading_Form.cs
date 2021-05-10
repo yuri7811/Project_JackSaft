@@ -943,14 +943,20 @@ namespace JackShaft_App
 
         private void button21_Click(object sender, EventArgs e)
         {
-            string QTY_Accumulated = (GetAllreadyReported_QTY(lbl_Lot.Text) + Convert.ToInt32(txt_QTY.Text)).ToString();
+            string QTY_Accumulated;
+
+            try
+            {
+                 QTY_Accumulated = (GetAllreadyReported_QTY(lbl_Lot.Text) + Convert.ToInt32(txt_QTY.Text)).ToString();
+            }
+            catch
+            { QTY_Accumulated = txt_QTY.Text; }
+
             Form Conformation = new Conformation(lbl_Lot.Text, lbl_Makat.Text, txt_QTY.Text, QTY_Accumulated, Task_3, Opr_3, ImageLink_3, lbl_UserID.Text,Weight);
             Conformation.ShowDialog(this);
 
 
             Load_Day_Order_List_new();
-
-
 
             HideButtons();
             pictureBox3.Image = null;
