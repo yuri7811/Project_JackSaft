@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JackShaft_App
@@ -20,18 +16,12 @@ namespace JackShaft_App
         List<int> Exit_Set_List = new List<int>();
         string SQL_Query;
 
-
-
-
-
         public QA_Screen()
         {
             InitializeComponent();
 
             Load_Finished_List();
         }
-
-
 
 
         private void Load_Finished_List()  // загружаем
@@ -75,7 +65,6 @@ namespace JackShaft_App
                     dt1.Rows[i][3].ToString().Trim(),                                // макат
                     dt1.Rows[i][9].ToString().Trim(),                                // QA_Worker
                     dt1.Rows[i][10].ToString().Trim()                               // QA_Resume
-                    //dt1.Rows[i][11].ToString().Trim()                               // name qa worker
                     );
                 }
             }
@@ -84,10 +73,7 @@ namespace JackShaft_App
             var dgv = new DataGridView();
             DGV_Archaiv_Items.RowTemplate.Height = 150;
             dgv.ClearSelection();
-
             Colloring();
-
-
 
         }
         private string Reformating_ConnectionString(string OriginalString)          // преобразовываем линк  в нормальный ПС читаемый  формат
@@ -104,19 +90,13 @@ namespace JackShaft_App
                 strFilePath = AfterSpaseDeleting;
             }
             return strFilePath;
-
         }
 
         private void DGV_Archaiv_Items_SelectionChanged(object sender, EventArgs e)
         {
 
             Colloring();
-
-
         }
-
-
-
 
 
         private void Colloring()

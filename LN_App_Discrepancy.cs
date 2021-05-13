@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
@@ -41,11 +35,7 @@ namespace JackShaft_App
             dataGridView100.DataSource = dt;
             dataGridView100.DefaultCellStyle.SelectionBackColor = dataGridView100.DefaultCellStyle.BackColor;
             dataGridView100.DefaultCellStyle.SelectionForeColor = dataGridView100.DefaultCellStyle.ForeColor;
-            //dataGridView1.Columns[4].DefaultCellStyle.Format = "HH:mm   dd/MM/yy ";
-            //dataGridView1.Columns[5].DefaultCellStyle.Format = "HH:mm   dd/MM/yy ";
-            //dataGridView1.Columns[6].DefaultCellStyle.Format = "HH:mm   dd/MM/yy ";
             dataGridView100.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-          
 
         }
 

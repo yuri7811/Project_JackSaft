@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JackShaft_App
@@ -19,9 +14,6 @@ namespace JackShaft_App
         String strFilePath = "";
         Image DefaultImage;
         Byte[] ImageByteArray;
-
-
-
 
         SqlConnection sqlcon = new SqlConnection(Properties.Settings.Default.Aplication_ConnectionString);
 
@@ -35,7 +27,6 @@ namespace JackShaft_App
         {
             InitializeComponent();
             Makat_Loading();
-           // Station_Nr_Loading();
             RefreshImageGrid();
         }
         void RefreshImageGrid()
@@ -46,15 +37,11 @@ namespace JackShaft_App
             string st1;
             int st2;
             if (cmb_Makat.Text == "") { st1 = ""; }   else { st1 = cmb_Makat.Text.Trim(); }
-         //   if (cmb_Station.Text == "") { st2 = 555; } else { st2 = Convert.ToInt32(cmb_Station.Text.Trim()); }
-
-
 
             SqlDataAdapter sqlda = new SqlDataAdapter("SP_JS_IMAGE_ViewAll", sqlcon);
 
             sqlda.SelectCommand.CommandType = CommandType.StoredProcedure;
             sqlda.SelectCommand.Parameters.Add("@Makat", st1);
-           // sqlda.SelectCommand.Parameters.Add("@Station_Nr", st2);
 
             DataTable dtblImages = new DataTable();
             sqlda.Fill(dtblImages);
@@ -63,8 +50,6 @@ namespace JackShaft_App
             dgvImages.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvImages.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvImages.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            // dgvImages.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            // dgvImages.Columns[5].Visible = false;
             dgvImages.Columns[0].Visible = false;
             sqlcon.Close();
         }
@@ -76,9 +61,7 @@ namespace JackShaft_App
             txt_ImageTitle.Clear();
             txt_Makat.Clear();
             Txt_Op_Order.Clear();
-       //     txt_Station_Nr.Clear();
             txt_ImageTitle.Clear();
-        //    axAcroPDF1.src = "C:\\PDF_NotFound.pdf";
             strFilePath = "";
             if ((Copy_Macat != "") &  (Copy_Order != "") & (Copy_Picture != "")) { btn_Paste.Visible = true; } else { btn_Paste.Visible = false; }
             if ((txt_Makat.Text != "") & (Txt_Op_Order.Text != "") & (txt_ImageTitle.Text != "")) { btn_Copy.Visible = true; } else { btn_Copy.Visible = false; }
@@ -98,8 +81,6 @@ namespace JackShaft_App
                 sqlCmd.Parameters.Add("@Makat", txt_Makat.Text.Trim());
                 sqlCmd.Parameters.Add("@Op_Order", Txt_Op_Order.Text.Trim());
                 sqlCmd.Parameters.Add("@Title", txt_ImageTitle.Text.Trim());
-              //  sqlCmd.Parameters.Add("@ImageLink", txt_ImageTitle.Text.Trim());
-             //   sqlCmd.Parameters.Add("@QTY", Convert.ToInt32(txt_Station_Nr.Text.Trim()));
 
                 sqlCmd.ExecuteNonQuery();
                 sqlcon.Close();
@@ -194,23 +175,12 @@ namespace JackShaft_App
                     sqlcon.Close();
                 }
         }
-        private void cmb_Station_MouseClick(object sender, MouseEventArgs e)
-        {
-           //  Station_Nr_Loading();
-        }
         private void cmb_Makat_MouseClick(object sender, MouseEventArgs e)
         {
            Makat_Loading();
         }
         private void cmb_Makat_SelectedIndexChanged(object sender, EventArgs e)
         {
-            IMAGE_SCREEN.Image = null;
-            Clear();
-            RefreshImageGrid();
-        }
-        private void cmb_Station_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
             IMAGE_SCREEN.Image = null;
             Clear();
             RefreshImageGrid();
@@ -250,15 +220,8 @@ namespace JackShaft_App
                 IMAGE_SCREEN.Image = Image.FromStream(fs);
                 fs.Dispose();
 
-
-
-               // IMAGE_SCREEN.Image = Image.FromFile(ofd.FileName);
                 IMAGE_SCREEN.SizeMode = PictureBoxSizeMode.StretchImage;
                 txt_ImageTitle.Clear();
-
-
-
-
 
                 txt_ImageTitle.Text = System.IO.Path.GetFileName(strFilePath);
             }

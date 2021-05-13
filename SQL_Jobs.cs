@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Data;
-using System.Data.SqlClient;
 using System.IO;
 
 namespace JackShaft_App
@@ -8,10 +6,6 @@ namespace JackShaft_App
     class SQL_Jobs
     {
         string Image_Name;
-
-
-
-
 
 
         public void Print_Lable( string WorkerID, string Paka, string Makat, string QTY,

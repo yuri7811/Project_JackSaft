@@ -137,8 +137,6 @@ namespace JackShaft_App
                             if (RB_Selector == 0)
                             { Query = " Select  * from V_JS_Data_From_BaanDB_1  " + StationSelector + "  "; }
 
-                  //  V_Welding_Data_From_BaanDB_Final_1
-
                             break;
                         case 1:
                             Query = " Select  * from V_JS_Data_From_BaanDB_1 where Makat LIKE '%" + Remove_All_AB_From_Barcode(BarCodeString) + "%'  ";
@@ -223,12 +221,8 @@ namespace JackShaft_App
                         string Cutting = OriginalPatch.Substring(32, OriginalPatch.Length - 32);
                         string AfterChanging = Cutting.Replace("/", @"\");
                         string AfterConnection = @"\\fbhczcapp1\SFC_CLOUD\Images\tcibd001" + AfterChanging;         // Test new server  
-                        //string AfterConnection = @"\\gfbhcapp1\\tcibd001$\" + AfterChanging;
-
-                string AfterSpaseDeleting = AfterConnection.Replace(" ", ""); ;
+                        string AfterSpaseDeleting = AfterConnection.Replace(" ", ""); ;
                         strFilePath = AfterSpaseDeleting;
-
-
 
                     }
                     return strFilePath;
@@ -242,8 +236,6 @@ namespace JackShaft_App
                               &&
                     (Convert.ToInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[5].Value.ToString())) > Convert.ToInt32(ZeroIfEmpty(DayList_View.CurrentRow.Cells[6].Value.ToString()))))) //Проверяем  если в процессе  колличество меньше чем требуется  Должны ли мы делать еще?
             {
-
-
                 pictureBox1.Image = (Image)DayList_View.CurrentRow.Cells[0].Value;
                 lbl_Lot.Text = DayList_View.CurrentRow.Cells[2].Value.ToString().Trim();
                 lbl_Makat.Text = DayList_View.CurrentRow.Cells[3].Value.ToString().Trim();
@@ -268,10 +260,6 @@ namespace JackShaft_App
                 Weight = DayList_View.CurrentRow.Cells[18].Value.ToString().Trim(); 
 
 
-
-
-
-
                 HideButtons();
                 pictureBox3.Image = null;
                 lbl_Lot.Visible = true;
@@ -294,11 +282,7 @@ namespace JackShaft_App
                 cb_Mukti_Print.Visible = false;
 
             }
-
-
         }
-
-
 
         private string Remove_All_AB_From_Barcode(string Barcode)                   // В поиск вставляем заглавные и прописные буквы
         {
@@ -337,17 +321,6 @@ namespace JackShaft_App
 
 
 
-
-
-        private void txt_NoLot_Mak_Val_KeyPress(object sender, KeyPressEventArgs e) // в поле количество вводим только цифры
-        {
-            const char Delete = (char)8;
-            e.Handled = !Char.IsDigit(e.KeyChar) && e.KeyChar != Delete;
-        }
-
-
-
-
         private void btn_Back_Click(object sender, EventArgs e)                        // Закрываем форму
         {
 
@@ -360,14 +333,6 @@ namespace JackShaft_App
 
 
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-
-            Form Worker_ID = new Worker_ID(1);
-            Worker_ID.ShowDialog(this);
-
-        }
 
         private void txt_QTY_MouseClick(object sender, MouseEventArgs e)
         {
@@ -566,12 +531,9 @@ namespace JackShaft_App
             pictureBox3.Image = null;
             try
             {
-
                 var fs = new FileStream(Properties.Settings.Default.OMS_Path + dgvImages2.Rows[2].Cells[4].Value, FileMode.Open, FileAccess.Read);
                 pictureBox3.Image = Image.FromStream(fs);
                 fs.Dispose();
-
-
 
             button3.BackgroundImage = Image.FromFile("images.png");
             Thread.Sleep(delay);
@@ -591,8 +553,6 @@ namespace JackShaft_App
                 pictureBox3.Image = Image.FromStream(fs);
                 fs.Dispose();
 
-
-
             button4.BackgroundImage = Image.FromFile( "images.png");
             Thread.Sleep(delay);
             Checked_Station[4] = 1; All_checked();
@@ -609,9 +569,6 @@ namespace JackShaft_App
                 var fs = new FileStream(Properties.Settings.Default.OMS_Path + dgvImages2.Rows[4].Cells[4].Value, FileMode.Open, FileAccess.Read);
                 pictureBox3.Image = Image.FromStream(fs);
                 fs.Dispose();
-
-
-
             button5.BackgroundImage = Image.FromFile("images.png");
             Thread.Sleep(delay);
             Checked_Station[5] = 1; All_checked();
@@ -628,9 +585,6 @@ namespace JackShaft_App
                 var fs = new FileStream(Properties.Settings.Default.OMS_Path + dgvImages2.Rows[5].Cells[4].Value, FileMode.Open, FileAccess.Read);
                 pictureBox3.Image = Image.FromStream(fs);
                 fs.Dispose();
-
-
-
 
             button6.BackgroundImage = Image.FromFile("images.png");
             Thread.Sleep(delay);
@@ -650,9 +604,6 @@ namespace JackShaft_App
                 pictureBox3.Image = Image.FromStream(fs);
                 fs.Dispose();
 
-
-
-
             button7.BackgroundImage = Image.FromFile("images.png");
             Thread.Sleep(delay);
             Checked_Station[7] = 1; All_checked();
@@ -670,8 +621,6 @@ namespace JackShaft_App
                 pictureBox3.Image = Image.FromStream(fs);
                 fs.Dispose();
 
-
-
             button8.BackgroundImage = Image.FromFile( "images.png");
             Thread.Sleep(delay);
             Checked_Station[8] = 1; All_checked();
@@ -688,8 +637,6 @@ namespace JackShaft_App
                 var fs = new FileStream(Properties.Settings.Default.OMS_Path + dgvImages2.Rows[8].Cells[4].Value, FileMode.Open, FileAccess.Read);
                 pictureBox3.Image = Image.FromStream(fs);
                 fs.Dispose();
-
-
 
             button9.BackgroundImage = Image.FromFile("images.png");
             Thread.Sleep(delay);
@@ -709,8 +656,6 @@ namespace JackShaft_App
                 var fs = new FileStream(Properties.Settings.Default.OMS_Path + dgvImages2.Rows[9].Cells[4].Value, FileMode.Open, FileAccess.Read);
             pictureBox3.Image = Image.FromStream(fs);
             fs.Dispose();
-
-
 
             button10.BackgroundImage = Image.FromFile("images.png");
             Thread.Sleep(delay);
@@ -745,7 +690,6 @@ namespace JackShaft_App
                 var fs = new FileStream(Properties.Settings.Default.OMS_Path + dgvImages2.Rows[11].Cells[4].Value, FileMode.Open, FileAccess.Read);
             pictureBox3.Image = Image.FromStream(fs);
             fs.Dispose();
-
 
             button12.BackgroundImage = Image.FromFile("images.png");
             Thread.Sleep(delay);
@@ -855,8 +799,6 @@ namespace JackShaft_App
             pictureBox3.Image = Image.FromStream(fs);
             fs.Dispose();
 
-
-
             button18.BackgroundImage = Image.FromFile("images.png");
             Thread.Sleep(delay);
             Checked_Station[18] = 1; All_checked();
@@ -892,9 +834,6 @@ namespace JackShaft_App
             pictureBox3.Image = Image.FromStream(fs);
             fs.Dispose();
 
-
-
-
             button20.BackgroundImage = Image.FromFile( "images.png");
             Thread.Sleep(delay);
             Checked_Station[20] = 1; All_checked();
@@ -907,8 +846,6 @@ namespace JackShaft_App
 
         private void HideButtons()
         {
-
-
 
             button1.Visible = false; button2.Visible = false; button3.Visible = false; button4.Visible = false; button5.Visible = false;
             button6.Visible = false; button7.Visible = false; button8.Visible = false; button9.Visible = false; button10.Visible = false;
@@ -969,10 +906,6 @@ namespace JackShaft_App
         }
 
 
-    
-
-
-
 
 
             private void button22_Click(object sender, EventArgs e)
@@ -1011,8 +944,6 @@ namespace JackShaft_App
                 i + 20);                                                                // Printed lable
             }
 
-
-
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -1032,12 +963,7 @@ namespace JackShaft_App
         private void DayList_View_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
 
-
-
             foreach (DataGridViewRow row in DayList_View.Rows)
-
-
-
 
                 if (Convert.ToInt32(ZeroIfEmpty(row.Cells[5].Value.ToString())) <= Convert.ToInt32(ZeroIfEmpty(row.Cells[17].Value.ToString()))
                     || Convert.ToInt32(ZeroIfEmpty(row.Cells[5].Value.ToString())) <= Convert.ToInt32(ZeroIfEmpty(row.Cells[6].Value.ToString())))
@@ -1085,14 +1011,6 @@ namespace JackShaft_App
             button8.Visible = false;
             button9.Visible = false;
             button10.Visible = false;
-
-
-
-
-
-
-
-
 
         }
     }

@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
-using System.IO;
 
 namespace JackShaft_App
 {
@@ -110,33 +105,24 @@ namespace JackShaft_App
                 da.Fill(dt1);
                 conn.Close();
 
-
-
-
                 DGV_Archaiv_Items.DataSource = null;
                 DGV_Archaiv_Items.Rows.Clear();
                 Lot_Search = "";
                 Makat_Search = "";
 
-
                 DGV_Archaiv_Items.Columns[5].DefaultCellStyle.Format = "hh:mm dd/MM";
-
-
 
                 for (int i = 0; i < dt1.Rows.Count; i++)
                 {
-
                     // соединяем три поля в одну трехстрочную ячейку
                     string Concat = //dt1.Rows[i][1].ToString().Trim()       // station
                                 dt1.Rows[i][2].ToString().Trim()    // lot
                             + "\r\n" + dt1.Rows[i][3].ToString().Trim();   // makat
 
-                   // (DateTime)row.Cells[4].Value).ToString("MM-dd-yyyy")
                     string DateTime = dt1.Rows[i][6].ToString();
                     Image Picture = null;
                     try
                     {
-
                         string Picture_Link = Reformating_ConnectionString(dt1.Rows[i][4].ToString().Trim());
                         Picture = Image.FromFile(Picture_Link);
                     }
@@ -159,23 +145,11 @@ namespace JackShaft_App
                     dt1.Rows[i][9].ToString().Trim(),                                // QA_Worker
                     dt1.Rows[i][10].ToString().Trim()                               // QA_Resume
 
-                    //dt1.Rows[i][11].ToString().Trim(),                               // name qa worker
-                    //dt1.Rows[i][12].ToString().Trim()                                // second name qa worker
                     );
 
                 }
-            //}
-
-            //catch { }
-          //  DGV_Archaiv_Items.ClearSelection();
-        //    dataGridView1.DataSource = dt1;
             DGV_Archaiv_Items.RowTemplate.Height = 80;
-
-
             DGV_Archaiv_Items.ClearSelection();
-
-           // DGV_Archaiv_Items.CurrentCell = null;
-
 
         }
 
@@ -219,11 +193,6 @@ namespace JackShaft_App
                                                                                                        //     Station =           row.Cells[2].Value.ToString().Trim();                              //Station
 
 
-
-
-
-                //    if (row.Cells[12].Value.ToString().Trim() != "")
-                //    { QA_Worker = "QA checker :   " + row.Cells[12].Value.ToString().Trim() + " " + row.Cells[13].Value.ToString().Trim(); } else { QA_Worker = ""; }
                 QA_Resume = row.Cells[11].Value.ToString();
             }
             if (QA_Status == "0") { CBox_Pass.Checked = false; CBox_Reject.Checked = false; QA_Status_Print = ""; }
@@ -235,8 +204,6 @@ namespace JackShaft_App
                 Last_QA_Worker.Text = QA_Worker;
 
             if (DGV_Archaiv_Items.SelectedRows.Count == 0) { panel1.Visible = false; btn_Call_QA.Visible = false; }
-
-
 
             try
             {
@@ -259,7 +226,6 @@ namespace JackShaft_App
                             row.DefaultCellStyle.BackColor = Color.White;
                             break;
                     }
-
             }
             catch { }
         }
@@ -329,19 +295,10 @@ namespace JackShaft_App
         private void CBox_MultiPrint_CheckedChanged(object sender, EventArgs e)
         {
             if (CBox_Pass.Checked == true) { CBox_Reject.Checked = false;  QA_Status = "2";    }
-
-
-
-            //
         }
         private void myCheckBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (CBox_Reject.Checked == true) { CBox_Pass.Checked = false; QA_Status = "1";  }
-
-
-
-
-            //
         }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -351,27 +308,11 @@ namespace JackShaft_App
         private void button1_Click(object sender, EventArgs e)
         {
 
-
-            //if (QA_Status == "0") { QA_Status_Print = ""; QA_printer = ""; }
-            //if (QA_Status == "1") { QA_Status_Print = "REJECT"; QA_printer = Properties.Settings.Default.Printer_QA_Reject; }
-            //if (QA_Status == "2") { QA_Status_Print = "PASS"; QA_printer = Properties.Settings.Default.Printer_QA_Pass; }
-
-           // SQL_Jobs Print = new SQL_Jobs();
             QA_Report(Convert.ToInt32(Operation_ID), QA_Status, Properties.Settings.Default.ID_Worker_QA.ToString(), tbox_QA_Note.Text);
-
-            //Print.Print_QA_Lable(Operation_ID, Station, QA_Status_Print, Lot_for_Print, Makat_for_Print, Properties.Settings.Default.ID_Worker_QA.ToString(), tbox_QA_Note.Text, QA_printer);
-
 
             Load_Finished_List();
 
-
-
         }
-
-
-
-
-
 
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)

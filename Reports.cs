@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JackShaft_App
@@ -207,11 +202,6 @@ namespace JackShaft_App
             string Numbers = Regex.Replace(Barcode, @"^[A-Za-z]+", "");
             return Numbers;
         }
-
-
-
-
-
 
         private void radioButton6_CheckedChanged(object sender, EventArgs e)
         {
