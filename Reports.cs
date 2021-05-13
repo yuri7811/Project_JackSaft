@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -11,7 +9,7 @@ namespace JackShaft_App
     {
 
 
-        int Selector = 1;
+      //  int Selector = 1;
         int Load_Shift = 0;
         DateTime Load_Date = DateTime.Today;
         int Load_Operation = 0;

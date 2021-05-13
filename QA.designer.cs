@@ -70,6 +70,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_Call_QA = new System.Windows.Forms.Button();
@@ -89,7 +90,6 @@
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.CBox_Reject = new JackShaft_App.MyCheckBox();
             this.CBox_Pass = new JackShaft_App.MyCheckBox();
             this.panel1.SuspendLayout();
@@ -105,15 +105,16 @@
             this.flowLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.flowLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Archaiv_Items)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // listView1
             // 
+            this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(3, 3);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(427, 74);
@@ -366,7 +367,7 @@
             this.flowLayoutPanel4.Location = new System.Drawing.Point(309, 3);
             this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(744, 91);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(743, 91);
             this.flowLayoutPanel4.TabIndex = 23;
             // 
             // panel2
@@ -433,7 +434,7 @@
             // btn_Back
             // 
             this.btn_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.btn_Back.Location = new System.Drawing.Point(442, 3);
+            this.btn_Back.Location = new System.Drawing.Point(443, 3);
             this.btn_Back.Name = "btn_Back";
             this.btn_Back.Size = new System.Drawing.Size(175, 74);
             this.btn_Back.TabIndex = 20;
@@ -446,7 +447,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.40057F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.59943F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 619F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 620F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel7, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel6, 2, 0);
@@ -474,10 +475,10 @@
             this.flowLayoutPanel7.Controls.Add(this.btn_Back);
             this.flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel7.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel7.Location = new System.Drawing.Point(1053, 814);
+            this.flowLayoutPanel7.Location = new System.Drawing.Point(1052, 814);
             this.flowLayoutPanel7.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(620, 80);
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(621, 80);
             this.flowLayoutPanel7.TabIndex = 35;
             // 
             // flowLayoutPanel6
@@ -485,10 +486,10 @@
             this.flowLayoutPanel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.flowLayoutPanel6.Controls.Add(this.label3);
             this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(1053, 3);
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(1052, 3);
             this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(620, 91);
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(621, 91);
             this.flowLayoutPanel6.TabIndex = 34;
             // 
             // label3
@@ -523,6 +524,17 @@
             this.flowLayoutPanel3.Size = new System.Drawing.Size(306, 91);
             this.flowLayoutPanel3.TabIndex = 22;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.InitialImage = null;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 10);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 10, 10, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(252, 63);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 76;
+            this.pictureBox2.TabStop = false;
+            // 
             // flowLayoutPanel5
             // 
             this.flowLayoutPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -531,14 +543,14 @@
             this.flowLayoutPanel5.Location = new System.Drawing.Point(309, 814);
             this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(744, 80);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(743, 80);
             this.flowLayoutPanel5.TabIndex = 24;
             // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.panel1);
             this.flowLayoutPanel2.Controls.Add(this.btn_Call_QA);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(1056, 100);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(1055, 100);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(567, 693);
             this.flowLayoutPanel2.TabIndex = 33;
@@ -568,7 +580,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(738, 708);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(737, 708);
             this.tableLayoutPanel3.TabIndex = 36;
             // 
             // DGV_Archaiv_Items
@@ -626,7 +638,7 @@
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DGV_Archaiv_Items.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.DGV_Archaiv_Items.Size = new System.Drawing.Size(718, 702);
+            this.DGV_Archaiv_Items.Size = new System.Drawing.Size(717, 702);
             this.DGV_Archaiv_Items.TabIndex = 32;
             this.DGV_Archaiv_Items.SelectionChanged += new System.EventHandler(this.DGV_Archaiv_Items_SelectionChanged);
             // 
@@ -750,17 +762,6 @@
             this.Column14.Visible = false;
             this.Column14.Width = 102;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.InitialImage = null;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 10);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 10, 10, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(252, 63);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 76;
-            this.pictureBox2.TabStop = false;
-            // 
             // CBox_Reject
             // 
             this.CBox_Reject.Checked = true;
@@ -817,11 +818,11 @@
             this.flowLayoutPanel6.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Archaiv_Items)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
