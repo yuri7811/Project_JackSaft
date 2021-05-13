@@ -1,6 +1,6 @@
 ﻿namespace JackShaft_App
 {
-    partial class Start_Screen
+    partial class JS_Start_Screen
     {
         /// <summary>
         /// Required designer variable.

@@ -11,7 +11,7 @@ using System.Threading;
 namespace JackShaft_App
 {
 
-    public partial class Loading_Form : Form
+    public partial class JS_Loading_Form : Form
     {
 
         SqlConnection sqlcon = new SqlConnection(Properties.Settings.Default.Aplication_ConnectionString);
@@ -24,7 +24,6 @@ namespace JackShaft_App
         List<string> list = new List<string>();
         int RB_Selector = 0;
         string StationSelector;
-        int WhoReportedMax_APP_Or_LN;
         string Temp_Ind11;
         int counter;
         int[] Checked_Station = new int[21];
@@ -32,13 +31,6 @@ namespace JackShaft_App
         int Button_Axis_X = 1200;
         int Divuah_Fild_Heith = 0;
         int delay = 0;
-        int Blanks_for_Print;
-        string Worker;
-        string Lot_for_Report;
-        string Makat_for_Report;
-        string QTY_for_Report;
-        string ImageLink_2;
-        string DISCRIPTION;
 
 
         string Description ;
@@ -50,7 +42,7 @@ namespace JackShaft_App
         string Weight;
 
 
-        public Loading_Form()
+        public JS_Loading_Form()
 
         {
             InitializeComponent();
@@ -84,43 +76,25 @@ namespace JackShaft_App
             DayList_View.RowHeadersVisible = false;
             BarCodeScan.Select();
             Load_Mode = 0;
-
-
-
              lbl_UserID.Text =  Properties.Settings.Default.ID_Worker.ToString();
-
-
-
 
         }
 
-        private void button4_Click(object sender, EventArgs e)                      // Кнопка  -  "Reload".  Перезагружаем\обновляем  дэй лист заново
-        {
 
-            CopyFromBaan();
+        // Кнопка  -  "Reload".  Перезагружаем\обновляем  дэй лист заново
+        private void button4_Click(object sender, EventArgs e)                     
+        {
+            SQL_Jobs SQL_Job_2 = new SQL_Jobs();
+            // Copy data from BaanDB to local table
+            SQL_Job_2.JS_CopyFromBaan();    
+
+            button400.Enabled = false;
             Load_Mode = 0;
             DayList_View.DataSource = null;
             DayList_View.Rows.Clear();
             Load_Day_Order_List_new();
 
         }
-         private void CopyFromBaan()   // Copy data from BaanDB to local table
-                {
-                        button400.Enabled = false;
-
-                    using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.Aplication_ConnectionString))
-
-                        if (conn.State == ConnectionState.Closed)
-                        {
-                            conn.Open();
-                            SqlCommand sqlCmd = new SqlCommand("SP_JS_Copy_From_Baan", conn) { CommandType = CommandType.StoredProcedure };
-                            sqlCmd.CommandTimeout = 300;
-                            sqlCmd.ExecuteNonQuery();
-                            conn.Close();
-                        }
-
-                }
-
 
 
          private void Load_Day_Order_List_new()                                      // загружаем лист с заданиями на день (или общий лист) и на его основании строим ДЭЙ ЛИСТ
@@ -268,7 +242,19 @@ namespace JackShaft_App
                 button22.Visible = true;
                 cb_Mukti_Print.Visible = true;
 
-                RefreshImageGrid();
+
+                // JS we get set of images  according makat
+                SQL_Jobs SQL_Job_3 = new SQL_Jobs();
+                try
+                {
+                    dgvImages2.DataSource = SQL_Job_3.JS_RefreshImageGrid(lbl_Makat.Text.Trim());
+                    dgvImages2.Columns[0].Visible = false;
+                    dgvImages2.Columns[1].Visible = false;
+                    dgvImages2.Columns[2].Visible = false;
+                    dgvImages2.Columns[3].Visible = false;
+                    dgvImages2.Columns[4].Visible = true;
+                } catch { }
+
                 Scren_Activate();
             }
             else
@@ -324,14 +310,8 @@ namespace JackShaft_App
         private void btn_Back_Click(object sender, EventArgs e)                        // Закрываем форму
         {
 
-
             Properties.Settings.Default.Save();
-
-
             this.Close(); }
-
-
-
 
 
         private void txt_QTY_MouseClick(object sender, MouseEventArgs e)
@@ -404,8 +384,6 @@ namespace JackShaft_App
 
         }
 
-
-
         private void Scren_Activate()
         {
             counter = dgvImages2.Rows.Count;
@@ -433,40 +411,7 @@ namespace JackShaft_App
         }
 
 
-        void RefreshImageGrid()
-        {
-
-            try
-            {
-
-                if (sqlcon.State == ConnectionState.Closed)
-                    sqlcon.Open();
-                SqlCommand sqlCmd = new SqlCommand("SP_JS_IMAGE_View_By_Station", sqlcon);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-                sqlCmd.Parameters.AddWithValue("@Makat", lbl_Makat.Text.Trim());
-
-                SqlDataAdapter sqlda = new SqlDataAdapter(sqlCmd);
-                sqlda.SelectCommand = sqlCmd;
-                DataTable dtblImages = new DataTable();
-                sqlda.Fill(dtblImages);
-                dgvImages2.DataSource = dtblImages;
-
-                dgvImages2.Columns[0].Visible = false;
-                dgvImages2.Columns[1].Visible = false;
-                dgvImages2.Columns[2].Visible = false;
-                dgvImages2.Columns[3].Visible = false;
-                dgvImages2.Columns[4].Visible = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error Message  Nr_1");
-            }
-            finally
-            {
-
-            }
-
-        }
+ 
 
 
         private void All_checked()
@@ -856,35 +801,14 @@ namespace JackShaft_App
         }
 
 
-        private int GetAllreadyReported_QTY(string Paka)
-        {
-            int new_QTY;
-            Query = " Select  * from V_JS_Sum_Done where Lot LIKE '%" + Paka.Trim() + "%'  ";
-
-            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.Aplication_ConnectionString))
-            using (SqlCommand command = new SqlCommand(Query, conn))
-            {
-                conn.Open();
-                DataTable dt = new DataTable();
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                adapter.Fill(dt);
-                conn.Close();
-                dataGridView2.DataSource = dt;
-                new_QTY = Convert.ToInt32(dt.Rows[0][1]);
-
-                return new_QTY;
-            }
-
-
-        }
 
         private void button21_Click(object sender, EventArgs e)
         {
             string QTY_Accumulated;
-
+            SQL_Jobs SQL_Job_1 = new SQL_Jobs();
             try
             {
-                 QTY_Accumulated = (GetAllreadyReported_QTY(lbl_Lot.Text) + Convert.ToInt32(txt_QTY.Text)).ToString();
+                 QTY_Accumulated = (SQL_Job_1.GetAllreadyReported_QTY(lbl_Lot.Text) + Convert.ToInt32(txt_QTY.Text)).ToString();
             }
             catch
             { QTY_Accumulated = txt_QTY.Text; }

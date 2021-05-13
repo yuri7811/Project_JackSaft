@@ -19,7 +19,6 @@ namespace JackShaft_App
         public QA_Screen()
         {
             InitializeComponent();
-
             Load_Finished_List();
         }
 
@@ -28,14 +27,19 @@ namespace JackShaft_App
         {
             try
             {
-                dt1.Rows.Clear();
-                SqlConnection conn = new SqlConnection(Properties.Settings.Default.Aplication_ConnectionString);
-                SQL_Query = "select   * from [SF_Productivity].[dbo].[V_JS_QA]   order by  ID desc";
-                DataTable dt = new DataTable();
-                conn.Open();
-                SqlDataAdapter da = new SqlDataAdapter(SQL_Query, conn);
-                da.Fill(dt1);
-                conn.Close();
+                //    dt1.Rows.Clear();
+                //    SqlConnection conn = new SqlConnection(Properties.Settings.Default.Aplication_ConnectionString);
+                //    SQL_Query = "select   * from [SF_Productivity].[dbo].[V_JS_QA]   order by  ID desc";
+                //    DataTable dt = new DataTable();
+                //    conn.Open();
+                //    SqlDataAdapter da = new SqlDataAdapter(SQL_Query, conn);
+                //    da.Fill(dt1);
+                //    conn.Close();
+
+                SQL_Jobs SQL_Job_1 = new SQL_Jobs();
+
+                DataTable dt1 = SQL_Job_1.GetData_For_QA_Screen();
+
                 DGV_Archaiv_Items.DataSource = null;
                 DGV_Archaiv_Items.Rows.Clear();
                 DGV_Archaiv_Items.Columns[5].DefaultCellStyle.Format = "hh:mm dd/MM";

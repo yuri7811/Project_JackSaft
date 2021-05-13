@@ -8,15 +8,12 @@ namespace JackShaft_App
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Start_Screen());
+            Application.Run(new JS_Start_Screen());
         }
     }
 }

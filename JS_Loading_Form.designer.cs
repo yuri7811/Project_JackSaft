@@ -1,6 +1,6 @@
 ﻿namespace JackShaft_App
 {
-    partial class Loading_Form
+    partial class JS_Loading_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -1141,14 +1141,14 @@
             this.CBox_Reparing.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CBox_Reparing.UseVisualStyleBackColor = true;
             // 
-            // Loading_Form
+            // JS_Loading_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1425, 796);
             this.Controls.Add(this.dgvImages2);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "Loading_Form";
+            this.Name = "JS_Loading_Form";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

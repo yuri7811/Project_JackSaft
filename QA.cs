@@ -12,8 +12,8 @@ namespace JackShaft_App
     {
 
 
-        int Set_Nr_for_Report;
-        string Station;
+     //   int Set_Nr_for_Report;
+     //   string Station;
         string strFilePath;
         string Operation_ID;
         string QA_Status;
@@ -21,9 +21,9 @@ namespace JackShaft_App
         string QA_Resume;
         string Search_QA_Status  = " = 0";
 
-        string Lot_for_Report;
-        string Makat_for_Report;
-        string QA_Status_Print;
+   //     string Lot_for_Report;
+    //    string Makat_for_Report;
+      string QA_Status_Print;
         int Task_for_Report;
         int QTY_for_Report;
         int Lost_for_Report;
@@ -232,23 +232,23 @@ namespace JackShaft_App
 
 
 
-        private void QA_Report(int Operation_ID, string QA_Status, string QA_Worker, string QA_Resume)   // Записываем СЕТ в таблицу.
-        {
-            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.Aplication_ConnectionString))
-                if (conn.State == ConnectionState.Closed)
-                {
-                    conn.Open();
-                    SqlCommand sqlCmd = new SqlCommand("SP_JS_QA_Report", conn) { CommandType = CommandType.StoredProcedure };
-                    sqlCmd.Parameters.AddWithValue("@Operation_ID", Operation_ID);
-                    sqlCmd.Parameters.AddWithValue("@QA_Status", QA_Status);
-                    sqlCmd.Parameters.AddWithValue("@QA_Worker", QA_Worker);
-                    sqlCmd.Parameters.AddWithValue("@QA_Resume", QA_Resume);
+        //private void QA_Report(int Operation_ID, string QA_Status, string QA_Worker, string QA_Resume)   // Записываем СЕТ в таблицу.
+        //{
+        //    using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.Aplication_ConnectionString))
+        //        if (conn.State == ConnectionState.Closed)
+        //        {
+        //            conn.Open();
+        //            SqlCommand sqlCmd = new SqlCommand("SP_JS_QA_Report", conn) { CommandType = CommandType.StoredProcedure };
+        //            sqlCmd.Parameters.AddWithValue("@Operation_ID", Operation_ID);
+        //            sqlCmd.Parameters.AddWithValue("@QA_Status", QA_Status);
+        //            sqlCmd.Parameters.AddWithValue("@QA_Worker", QA_Worker);
+        //            sqlCmd.Parameters.AddWithValue("@QA_Resume", QA_Resume);
 
 
-                    sqlCmd.ExecuteNonQuery();
-                    conn.Close();
-                }
-        }
+        //            sqlCmd.ExecuteNonQuery();
+        //            conn.Close();
+        //        }
+        //}
 
 
         private void Repeated_QA_Call(int Operation_ID)   // Записываем СЕТ в таблицу.
@@ -307,8 +307,8 @@ namespace JackShaft_App
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            QA_Report(Convert.ToInt32(Operation_ID), QA_Status, Properties.Settings.Default.ID_Worker_QA.ToString(), tbox_QA_Note.Text);
+            SQL_Jobs SQL_Job2 = new SQL_Jobs();
+            SQL_Job2.QA_Report(Convert.ToInt32(Operation_ID), QA_Status, Properties.Settings.Default.ID_Worker_QA.ToString(), tbox_QA_Note.Text);
 
             Load_Finished_List();
 
@@ -337,21 +337,25 @@ namespace JackShaft_App
 
         private void CheckPermition()
         {
-            DataTable dt7 = new DataTable();
 
-            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.Aplication_ConnectionString))
-            {
 
-                conn.Open();
-                SqlCommand myCmd = new SqlCommand("SP_Wellder_Or_QA", conn);
-                myCmd.CommandType = CommandType.StoredProcedure;
-                myCmd.Parameters.Add(new SqlParameter("@Worker_ID", Properties.Settings.Default.ID_Worker_QA.ToString()));
-                SqlDataAdapter da = new SqlDataAdapter(myCmd);
-                da.Fill(dt7);
-                conn.Close();
-            }
+            SQL_Jobs SQL_Job1 = new SQL_Jobs();
 
-            if (dt7.Rows[0][0].ToString().Trim() == "2002") { Permitions = true; } else { Permitions = false; }
+            //DataTable dt7 = new DataTable();
+            //using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.Aplication_ConnectionString))
+            //{
+            //    conn.Open();
+            //    SqlCommand myCmd = new SqlCommand("SP_Wellder_Or_QA", conn);
+            //    myCmd.CommandType = CommandType.StoredProcedure;
+            //    myCmd.Parameters.Add(new SqlParameter("@Worker_ID", Properties.Settings.Default.ID_Worker_QA.ToString()));
+            //    SqlDataAdapter da = new SqlDataAdapter(myCmd);
+            //    da.Fill(dt7);
+            //    conn.Close();
+            //}
+
+            if (SQL_Job1.CheckWorkerID(Properties.Settings.Default.ID_Worker_QA.ToString()).Rows[0][0].ToString().Trim() == "2002")
+            { Permitions = true; }
+            else { Permitions = false; }
 
         }
 

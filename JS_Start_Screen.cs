@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace JackShaft_App
 {
-    public partial class Start_Screen : Form
+    public partial class JS_Start_Screen : Form
     {
-        public Start_Screen()
+        public JS_Start_Screen()
         {
             InitializeComponent();
 

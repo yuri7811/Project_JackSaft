@@ -84,11 +84,11 @@
     <Compile Include="LN_App_Discrepancy.designer.cs">
       <DependentUpon>LN_App_Discrepancy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Loading_Form.cs">
+    <Compile Include="JS_Loading_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Loading_Form.designer.cs">
-      <DependentUpon>Loading_Form.cs</DependentUpon>
+    <Compile Include="JS_Loading_Form.designer.cs">
+      <DependentUpon>JS_Loading_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="MyCheckBox.cs">
       <SubType>Component</SubType>
@@ -107,12 +107,6 @@
     <Compile Include="QA_Screen.designer.cs">
       <DependentUpon>QA_Screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rack_Serial.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Rack_Serial.designer.cs">
-      <DependentUpon>Rack_Serial.cs</DependentUpon>
-    </Compile>
     <Compile Include="Reports.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,11 +114,11 @@
       <DependentUpon>Reports.cs</DependentUpon>
     </Compile>
     <Compile Include="SQL_Jobs.cs" />
-    <Compile Include="Start_Screen.cs">
+    <Compile Include="JS_Start_Screen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Start_Screen.designer.cs">
-      <DependentUpon>Start_Screen.cs</DependentUpon>
+    <Compile Include="JS_Start_Screen.designer.cs">
+      <DependentUpon>JS_Start_Screen.cs</DependentUpon>
     </Compile>
     <Compile Include="Worker_ID.cs">
       <SubType>Form</SubType>
@@ -150,8 +144,8 @@
     <EmbeddedResource Include="LN_App_Discrepancy.resx">
       <DependentUpon>LN_App_Discrepancy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Loading_Form.resx">
-      <DependentUpon>Loading_Form.cs</DependentUpon>
+    <EmbeddedResource Include="JS_Loading_Form.resx">
+      <DependentUpon>JS_Loading_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -169,14 +163,11 @@
     <EmbeddedResource Include="QA_Screen.resx">
       <DependentUpon>QA_Screen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rack_Serial.resx">
-      <DependentUpon>Rack_Serial.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Start_Screen.resx">
-      <DependentUpon>Start_Screen.cs</DependentUpon>
+    <EmbeddedResource Include="JS_Start_Screen.resx">
+      <DependentUpon>JS_Start_Screen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Worker_ID.resx">
       <DependentUpon>Worker_ID.cs</DependentUpon>

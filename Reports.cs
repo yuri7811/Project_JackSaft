@@ -53,31 +53,15 @@ namespace JackShaft_App
 
             dataGridView1.DataSource = null;
             dataGridView1.Rows.Clear();
-            DataTable dt = new DataTable();
 
-            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.Aplication_ConnectionString))
-            {
+            SQL_Jobs SQL_Job1 = new SQL_Jobs();
 
-                conn.Open();
-                SqlCommand myCmd = new SqlCommand("SP_JS_Select_By_Shift", conn);
-                myCmd.CommandType = CommandType.StoredProcedure;
-                myCmd.Parameters.Add(new SqlParameter("@Shift", Load_Shift));
-                myCmd.Parameters.Add(new SqlParameter("@Date", Load_Date));
-                myCmd.Parameters.Add(new SqlParameter("@Operation", Load_Operation));
-                myCmd.Parameters.Add(new SqlParameter("@SearchString", Load_SearchString));
-                myCmd.Parameters.Add(new SqlParameter("@ShiftCount", Load_ShiftCount));
-
-
-                SqlDataAdapter da = new SqlDataAdapter(myCmd);
-                da.Fill(dt);
-                conn.Close();
-            }
-            dataGridView1.DataSource = dt;
+            dataGridView1.DataSource = SQL_Job1.GetData_For_Report(Load_Shift, Load_Date, Load_Operation, Load_SearchString, Load_ShiftCount); ;
             dataGridView1.DefaultCellStyle.SelectionBackColor = dataGridView1.DefaultCellStyle.BackColor;
             dataGridView1.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor;
             dataGridView1.Columns[7].DefaultCellStyle.Format = "HH:mm   dd/MM ";
             dataGridView1.Columns[10].DefaultCellStyle.Format = "HH:mm   dd/MM ";
-             dataGridView1.Columns[5].DefaultCellStyle.Format = "HH:mm dd/MM ";
+            dataGridView1.Columns[5].DefaultCellStyle.Format = "HH:mm dd/MM ";
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.ColumnHeadersHeight = 35;
 
@@ -96,27 +80,11 @@ namespace JackShaft_App
 
             dataGridView4.DataSource = null;
             dataGridView4.Rows.Clear();
-            DataTable dt = new DataTable();
 
-            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.Aplication_ConnectionString))
-            {
+            SQL_Jobs SQL_Job1 = new SQL_Jobs();
 
-                conn.Open();
-                SqlCommand myCmd = new SqlCommand("SP_JS_Select_By_Shift", conn);
-                myCmd.CommandType = CommandType.StoredProcedure;
-                myCmd.Parameters.Add(new SqlParameter("@Shift", Load_Shift));
-                myCmd.Parameters.Add(new SqlParameter("@Date", Load_Date));
-                myCmd.Parameters.Add(new SqlParameter("@Operation", Load_Operation1));
-                myCmd.Parameters.Add(new SqlParameter("@SearchString", Load_SearchString));
-                myCmd.Parameters.Add(new SqlParameter("@ShiftCount", Load_ShiftCount));
-
-
-                SqlDataAdapter da = new SqlDataAdapter(myCmd);
-                da.Fill(dt);
-                conn.Close();
-            }
-
-            dataGridView4.DataSource = dt;
+            dataGridView4.DataSource = SQL_Job1.GetData_For_Report(Load_Shift, Load_Date, Load_Operation1, Load_SearchString, Load_ShiftCount);
+            ;
             dataGridView4.DefaultCellStyle.SelectionBackColor = dataGridView4.DefaultCellStyle.BackColor;
             dataGridView4.DefaultCellStyle.SelectionForeColor = dataGridView4.DefaultCellStyle.ForeColor;
             this.dataGridView4.EnableHeadersVisualStyles = false;
@@ -136,27 +104,10 @@ namespace JackShaft_App
 
             dataGridView3.DataSource = null;
             dataGridView3.Rows.Clear();
-            DataTable dt3 = new DataTable();
 
-            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.Aplication_ConnectionString))
-            {
+            SQL_Jobs SQL_Job1 = new SQL_Jobs();
 
-                conn.Open();
-                SqlCommand myCmd = new SqlCommand("SP_JS_Select_By_Shift", conn);
-                myCmd.CommandType = CommandType.StoredProcedure;
-                myCmd.Parameters.Add(new SqlParameter("@Shift", Load_Shift));
-                myCmd.Parameters.Add(new SqlParameter("@Date", Load_Date));
-                myCmd.Parameters.Add(new SqlParameter("@Operation", Load_Operation3));
-                myCmd.Parameters.Add(new SqlParameter("@SearchString", Load_SearchString));
-                myCmd.Parameters.Add(new SqlParameter("@ShiftCount", Load_ShiftCount));
-
-
-                SqlDataAdapter da = new SqlDataAdapter(myCmd);
-                da.Fill(dt3);
-                conn.Close();
-            }
-
-            dataGridView3.DataSource = dt3;
+            dataGridView3.DataSource = SQL_Job1.GetData_For_Report(Load_Shift, Load_Date, Load_Operation3, Load_SearchString, Load_ShiftCount); ;
 
            this.dataGridView3.EnableHeadersVisualStyles = false;
             this.dataGridView3.ColumnHeadersHeight = 35;

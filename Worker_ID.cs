@@ -16,32 +16,14 @@ namespace JackShaft_App
              AAA = Service;
         }
 
-        private DataTable CheckWorkerID(string ID)  // загружаем
-        {
-
-            DataTable dt = new DataTable();
-
-            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.Aplication_ConnectionString))
-            {
-
-                conn.Open();
-                SqlCommand myCmd = new SqlCommand("SP_Welding_Get_Worker_By_ID", conn);
-                myCmd.CommandType = CommandType.StoredProcedure;
-                myCmd.Parameters.Add(new SqlParameter("@Worker_ID", ID));
-                SqlDataAdapter da = new SqlDataAdapter(myCmd);
-                da.Fill(dt);
-                conn.Close();
-            }
-
-            return dt;
-        }
+   
 
              private void button2_Click(object sender, EventArgs e)
         {
-
+            SQL_Jobs SQL_Job = new SQL_Jobs();
             if (AAA == 1)
             {
-                DataTable Name = CheckWorkerID(txt_ID.Text.Trim());
+                DataTable Name = SQL_Job.CheckWorkerID(txt_ID.Text.Trim());
                 if (Name != null)
                 {
                     if (Name.Rows.Count > 0)
@@ -51,7 +33,7 @@ namespace JackShaft_App
                         Properties.Settings.Default.Worker_Name = Name1;
                         Properties.Settings.Default.Save();
                         this.Close();
-                        Form Loading_Form = new Loading_Form();
+                        Form Loading_Form = new JS_Loading_Form();
                         Loading_Form.ShowDialog(this);
                     }
                     else
@@ -64,7 +46,7 @@ namespace JackShaft_App
 
             if (AAA == 2)
                 {
-                    DataTable Name2 = CheckWorkerID(txt_ID.Text.Trim());
+                    DataTable Name2 = SQL_Job.CheckWorkerID(txt_ID.Text.Trim());
                     if (Name2 != null)
                     {
                         if (Name2.Rows.Count > 0)
