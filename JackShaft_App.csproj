@@ -181,6 +181,9 @@
     <EmbeddedResource Include="Worker_ID.resx">
       <DependentUpon>Worker_ID.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="JackShaft_App.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -199,6 +202,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\NoImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BOD_Template.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NoImage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
