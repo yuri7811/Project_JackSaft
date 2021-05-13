@@ -43,44 +43,12 @@ namespace JackShaft_App
             datePicker_fromDate.Visible = true;
             checkBox1.Visible = false;
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            printDocument1.Print();
-        }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             Bitmap bm = new Bitmap(this.pan_2.Width, this.pan_2.Height);
             pan_2.DrawToBitmap(bm, new Rectangle(0, 0, this.pan_2.Width, this.pan_2.Height));
             e.Graphics.DrawImage(bm, 0, 0);
-        }
-
-        private void Reset_All()
-        {
-            Load_Shift = 1;
-            DateTime Load_Date = DateTime.Today;
-            Load_Operation = 0;
-            Load_SearchString = "1";
-            Load_ShiftCount = 3;
-
-        }
-        private void Mark_NoList_Items(string Makat, DateTime Load_Date)  // загружаем
-        {
-
-            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.Aplication_ConnectionString))
-            {
-
-                conn.Open();
-                SqlCommand myCmd = new SqlCommand("SP_Mark_NoList_Items", conn);
-                myCmd.CommandType = CommandType.StoredProcedure;
-                myCmd.Parameters.Add(new SqlParameter("@Date", Load_Date));
-                myCmd.Parameters.Add(new SqlParameter("@Makat", Makat));
-                myCmd.ExecuteNonQuery();
-                conn.Close();
-            }
-
-
-
         }
 
 
@@ -118,7 +86,6 @@ namespace JackShaft_App
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.ColumnHeadersHeight = 35;
 
-            //dataGridView1.CurrentRow.Selected = true;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1_ChangeColor();
             label1.Text = Load_Date.ToString("dd-MM-yy");
@@ -198,7 +165,6 @@ namespace JackShaft_App
 
            this.dataGridView3.EnableHeadersVisualStyles = false;
             this.dataGridView3.ColumnHeadersHeight = 35;
-          //  dataGridView3.RowTemplate.Height = 35;
             dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
         }
@@ -244,15 +210,6 @@ namespace JackShaft_App
 
 
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            Selector = 1; Load_Finished_List_Archive1();
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            Selector = 2; Load_Finished_List_Archive1();
-        }
 
 
 
@@ -363,13 +320,6 @@ namespace JackShaft_App
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Mark_NoList_Items(SelectedMakat, Load_Date);
-            Load_Finished_List_Archive1();
-            Load_Finished_List_Archive3();
-
-        }
 
         private void dataGridView3_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -423,18 +373,10 @@ namespace JackShaft_App
         }
 
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            //Form ProcessLog = new Parameter_Log_Form();
-            //ProcessLog.ShowDialog(this);
-        }
 
         private void button7_Click(object sender, EventArgs e)
         {
             LN_App_Discrepancy Discrepancy = new LN_App_Discrepancy();
-           // Discrepancy.Show();
-
-           // Form Procces_form = new Procces_form();
             Discrepancy.ShowDialog(this);
 
         }

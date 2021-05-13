@@ -28,10 +28,6 @@ namespace JackShaft_App
 
             Properties.Settings.Default.ConnectionString_LN_Linker = MyIni.Read("ConnectionString_LN_Linker");
             Properties.Settings.Default.Current_Station = MyIni.Read("Current_Station");
-            //Properties.Settings.Default.Rack_Report_Station = MyIni.Read("Rack_Report_Station");
-            //Properties.Settings.Default.Only_Makat_Station_1 = MyIni.Read("Only_Makat_Station_1");
-            //Properties.Settings.Default.Only_Makat_Station_2 = MyIni.Read("Only_Makat_Station_2");
-            //Properties.Settings.Default.Only_Makat_Station_3 = MyIni.Read("Only_Makat_Station_3");
             Properties.Settings.Default.OMS_Path = MyIni.Read("OMS_Path");
 
             Properties.Settings.Default.Report_File_Dir = MyIni.Read("Report_File_Dir");

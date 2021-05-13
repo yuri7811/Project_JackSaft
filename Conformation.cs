@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 namespace JackShaft_App
@@ -103,27 +98,6 @@ namespace JackShaft_App
                     sqlCmd.Parameters.AddWithValue("@Task", Task);
                     sqlCmd.Parameters.AddWithValue("@Opr", Opr);
                     sqlCmd.Parameters.AddWithValue("@Image", Image_Link);
-                    sqlCmd.Parameters.AddWithValue("@UserID", User_ID);
-                    sqlCmd.Parameters.AddWithValue("@Weight", Weight);
-
-
-                    sqlCmd.ExecuteNonQuery();
-                    conn.Close();
-                }
-        }
-
-        private void Log_Part_Proccesing(string Lot, string Makat, string Report_QTY, string Task, string Opr, string User_ID, string Weight)   // Записываем СЕТ в таблицу.
-        {
-            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.Aplication_ConnectionString))
-                if (conn.State == ConnectionState.Closed)
-                {
-                    conn.Open();
-                    SqlCommand sqlCmd = new SqlCommand("SP_JS_Report_To_LN", conn) { CommandType = CommandType.StoredProcedure };
-                    sqlCmd.Parameters.AddWithValue("@Lot", Lot);
-                    sqlCmd.Parameters.AddWithValue("@Makat", Makat);
-                    sqlCmd.Parameters.AddWithValue("@Value", Report_QTY);
-                    sqlCmd.Parameters.AddWithValue("@Task", Task);
-                    sqlCmd.Parameters.AddWithValue("@Opr", Opr);
                     sqlCmd.Parameters.AddWithValue("@UserID", User_ID);
                     sqlCmd.Parameters.AddWithValue("@Weight", Weight);
 
