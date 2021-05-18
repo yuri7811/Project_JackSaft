@@ -5,7 +5,7 @@ using System.Data;
 
 namespace JackShaft_App
 {
-    class SQL_Jobs
+    class JS_SQL_Jobs
     {
         string Image_Name;
 
@@ -58,7 +58,6 @@ namespace JackShaft_App
 
         }
 
-
         // JS we get set of images  according makat
         internal DataTable JS_RefreshImageGrid(string Makat)
         {
@@ -78,8 +77,6 @@ namespace JackShaft_App
           
 
         }
-
-
 
         // JS when we make report to ln we have  put to xml file accumulated QTY and we asc already reported QTY
         internal int GetAllreadyReported_QTY(string Paka)  
@@ -102,7 +99,6 @@ namespace JackShaft_App
 
         }
 
-
         // Worker is ???  QA  - 1  , Production - 0
         internal DataTable CheckWorkerID(string ID)  // загружаем
         {
@@ -122,7 +118,6 @@ namespace JackShaft_App
 
             return dt;
         }
-
 
         // working with Report  get data according  Load Operation  key.
         internal DataTable GetData_For_Report(int Load_Shift, DateTime Load_Date, int Load_Operation1, string Load_SearchString, int Load_ShiftCount)
@@ -164,7 +159,6 @@ namespace JackShaft_App
             conn.Close();
             return dt1;
         }
-
 
         internal void QA_Report(int Operation_ID, string QA_Status, string QA_Worker, string QA_Resume)   // Записываем СЕТ в таблицу.
         {

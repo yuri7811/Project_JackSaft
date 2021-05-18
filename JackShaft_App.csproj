@@ -90,6 +90,12 @@
     <Compile Include="JS_Loading_Form.designer.cs">
       <DependentUpon>JS_Loading_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Welding_Loading_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Welding_Loading_Form.designer.cs">
+      <DependentUpon>Welding_Loading_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -113,12 +119,19 @@
     <Compile Include="Reports.designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
     </Compile>
-    <Compile Include="SQL_Jobs.cs" />
+    <Compile Include="JS_SQL_Jobs.cs" />
     <Compile Include="JS_Start_Screen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="JS_Start_Screen.designer.cs">
       <DependentUpon>JS_Start_Screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Welding_SQL_Jobs.cs" />
+    <Compile Include="Welding_Start_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Welding_Start_Form.designer.cs">
+      <DependentUpon>Welding_Start_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Worker_ID.cs">
       <SubType>Form</SubType>
@@ -147,6 +160,9 @@
     <EmbeddedResource Include="JS_Loading_Form.resx">
       <DependentUpon>JS_Loading_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Welding_Loading_Form.resx">
+      <DependentUpon>Welding_Loading_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -168,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="JS_Start_Screen.resx">
       <DependentUpon>JS_Start_Screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Welding_Start_Form.resx">
+      <DependentUpon>Welding_Start_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Worker_ID.resx">
       <DependentUpon>Worker_ID.cs</DependentUpon>

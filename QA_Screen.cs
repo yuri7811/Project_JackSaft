@@ -36,7 +36,7 @@ namespace JackShaft_App
                 //    da.Fill(dt1);
                 //    conn.Close();
 
-                SQL_Jobs SQL_Job_1 = new SQL_Jobs();
+                JS_SQL_Jobs SQL_Job_1 = new JS_SQL_Jobs();
 
                 DataTable dt1 = SQL_Job_1.GetData_For_QA_Screen();
 

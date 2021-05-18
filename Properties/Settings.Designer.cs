@@ -310,5 +310,101 @@ namespace JackShaft_App.Properties {
                 this["Worker_Name_QA"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Aplication_ConnectionString_2 {
+            get {
+                return ((string)(this["Aplication_ConnectionString_2"]));
+            }
+            set {
+                this["Aplication_ConnectionString_2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Baan_ConnectionString {
+            get {
+                return ((string)(this["Baan_ConnectionString"]));
+            }
+            set {
+                this["Baan_ConnectionString"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DefaultStationNr {
+            get {
+                return ((string)(this["DefaultStationNr"]));
+            }
+            set {
+                this["DefaultStationNr"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Print_File_Dir {
+            get {
+                return ((string)(this["Print_File_Dir"]));
+            }
+            set {
+                this["Print_File_Dir"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Printer_QA_Pass {
+            get {
+                return ((string)(this["Printer_QA_Pass"]));
+            }
+            set {
+                this["Printer_QA_Pass"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Printer_QA_Reject {
+            get {
+                return ((string)(this["Printer_QA_Reject"]));
+            }
+            set {
+                this["Printer_QA_Reject"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string OMS_Image {
+            get {
+                return ((string)(this["OMS_Image"]));
+            }
+            set {
+                this["OMS_Image"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Line {
+            get {
+                return ((string)(this["Line"]));
+            }
+            set {
+                this["Line"] = value;
+            }
+        }
     }
 }

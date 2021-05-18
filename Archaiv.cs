@@ -219,8 +219,8 @@ try {
         }
         private void Btn_Print_Set_Lot_Click(object sender, EventArgs e)   // Print button
         {
-            SQL_Jobs BBB = new SQL_Jobs();
-            SQL_Jobs CCC = new SQL_Jobs();
+            JS_SQL_Jobs BBB = new JS_SQL_Jobs();
+            JS_SQL_Jobs CCC = new JS_SQL_Jobs();
 
          
 

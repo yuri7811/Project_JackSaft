@@ -307,7 +307,7 @@ namespace JackShaft_App
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SQL_Jobs SQL_Job2 = new SQL_Jobs();
+            JS_SQL_Jobs SQL_Job2 = new JS_SQL_Jobs();
             SQL_Job2.QA_Report(Convert.ToInt32(Operation_ID), QA_Status, Properties.Settings.Default.ID_Worker_QA.ToString(), tbox_QA_Note.Text);
 
             Load_Finished_List();
@@ -339,7 +339,7 @@ namespace JackShaft_App
         {
 
 
-            SQL_Jobs SQL_Job1 = new SQL_Jobs();
+            JS_SQL_Jobs SQL_Job1 = new JS_SQL_Jobs();
 
             //DataTable dt7 = new DataTable();
             //using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.Aplication_ConnectionString))

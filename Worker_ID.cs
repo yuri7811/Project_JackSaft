@@ -1,26 +1,21 @@
 ﻿using System;
 using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace JackShaft_App
 {
     public partial class Worker_ID : Form
     {
-
         int AAA;
         public Worker_ID(int Service)
         {
             InitializeComponent();
-
-             AAA = Service;
+            AAA = Service;
         }
-
-   
 
              private void button2_Click(object sender, EventArgs e)
         {
-            SQL_Jobs SQL_Job = new SQL_Jobs();
+            JS_SQL_Jobs SQL_Job = new JS_SQL_Jobs();
             if (AAA == 1)
             {
                 DataTable Name = SQL_Job.CheckWorkerID(txt_ID.Text.Trim());
@@ -33,8 +28,32 @@ namespace JackShaft_App
                         Properties.Settings.Default.Worker_Name = Name1;
                         Properties.Settings.Default.Save();
                         this.Close();
-                        Form Loading_Form = new JS_Loading_Form();
-                        Loading_Form.ShowDialog(this);
+
+                        switch (Properties.Settings.Default.Line)
+                        {
+                            case "JS":
+                                Form Loading_Form = new JS_Loading_Form();
+                                Loading_Form.ShowDialog(this);
+                                break;
+                            case "Welding":
+                                Form Loading_Form_W = new Welding_Loading_Form();
+                                Loading_Form_W.ShowDialog(this);
+                                break;
+                            case "Warehouse":
+                                //Form Loading_Form = new JS_Loading_Form();
+                                //Loading_Form.ShowDialog(this);
+                                break;
+                            default:
+                                //Form Loading_Form = new JS_Loading_Form();
+                                //Loading_Form.ShowDialog(this);
+                                break;
+                        }
+                        //Form Loading_Form = new JS_Loading_Form();
+                        //Loading_Form.ShowDialog(this);
+
+
+
+
                     }
                     else
                     {
@@ -73,8 +92,14 @@ namespace JackShaft_App
         private void button1_Click(object sender, EventArgs e)
         {
             txt_ID.Text = "52548";
+        }
 
-
+        private void Txt_ID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button2_Click(this, new EventArgs());
+            }
         }
     }
 }

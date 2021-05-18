@@ -8,8 +8,6 @@ namespace JackShaft_App
     public partial class Reports : Form
     {
 
-
-      //  int Selector = 1;
         int Load_Shift = 0;
         DateTime Load_Date = DateTime.Today;
         int Load_Operation = 0;
@@ -17,16 +15,14 @@ namespace JackShaft_App
         int Load_ShiftCount = 3;
         int Load_Operation1 = 100;
         int Load_Operation3 = 220;
-
         int CalculationSelector = 0;
         string SelectedMakat = "";
-
 
         public Reports()
         {
             InitializeComponent();
-
         }
+
         private void Reports_Load(object sender, EventArgs e)
         {
             datePicker_fromDate.Value = DateTime.Now.AddDays(0);
@@ -52,7 +48,7 @@ namespace JackShaft_App
             dataGridView1.DataSource = null;
             dataGridView1.Rows.Clear();
 
-            SQL_Jobs SQL_Job1 = new SQL_Jobs();
+            JS_SQL_Jobs SQL_Job1 = new JS_SQL_Jobs();
 
             dataGridView1.DataSource = SQL_Job1.GetData_For_Report(Load_Shift, Load_Date, Load_Operation, Load_SearchString, Load_ShiftCount); ;
             dataGridView1.DefaultCellStyle.SelectionBackColor = dataGridView1.DefaultCellStyle.BackColor;
@@ -79,7 +75,7 @@ namespace JackShaft_App
             dataGridView4.DataSource = null;
             dataGridView4.Rows.Clear();
 
-            SQL_Jobs SQL_Job1 = new SQL_Jobs();
+            JS_SQL_Jobs SQL_Job1 = new JS_SQL_Jobs();
 
             dataGridView4.DataSource = SQL_Job1.GetData_For_Report(Load_Shift, Load_Date, Load_Operation1, Load_SearchString, Load_ShiftCount);
             ;
@@ -103,7 +99,7 @@ namespace JackShaft_App
             dataGridView3.DataSource = null;
             dataGridView3.Rows.Clear();
 
-            SQL_Jobs SQL_Job1 = new SQL_Jobs();
+            JS_SQL_Jobs SQL_Job1 = new JS_SQL_Jobs();
 
             dataGridView3.DataSource = SQL_Job1.GetData_For_Report(Load_Shift, Load_Date, Load_Operation3, Load_SearchString, Load_ShiftCount); ;
 

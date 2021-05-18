@@ -84,7 +84,7 @@ namespace JackShaft_App
         // Кнопка  -  "Reload".  Перезагружаем\обновляем  дэй лист заново
         private void button4_Click(object sender, EventArgs e)                     
         {
-            SQL_Jobs SQL_Job_2 = new SQL_Jobs();
+            JS_SQL_Jobs SQL_Job_2 = new JS_SQL_Jobs();
             // Copy data from BaanDB to local table
             SQL_Job_2.JS_CopyFromBaan();    
 
@@ -244,7 +244,7 @@ namespace JackShaft_App
 
 
                 // JS we get set of images  according makat
-                SQL_Jobs SQL_Job_3 = new SQL_Jobs();
+                JS_SQL_Jobs SQL_Job_3 = new JS_SQL_Jobs();
                 try
                 {
                     dgvImages2.DataSource = SQL_Job_3.JS_RefreshImageGrid(lbl_Makat.Text.Trim());
@@ -805,7 +805,7 @@ namespace JackShaft_App
         private void button21_Click(object sender, EventArgs e)
         {
             string QTY_Accumulated;
-            SQL_Jobs SQL_Job_1 = new SQL_Jobs();
+            JS_SQL_Jobs SQL_Job_1 = new JS_SQL_Jobs();
             try
             {
                  QTY_Accumulated = (SQL_Job_1.GetAllreadyReported_QTY(lbl_Lot.Text) + Convert.ToInt32(txt_QTY.Text)).ToString();
@@ -834,8 +834,8 @@ namespace JackShaft_App
 
             private void button22_Click(object sender, EventArgs e)
         {
-            SQL_Jobs BBB = new SQL_Jobs();
-            SQL_Jobs CCC = new SQL_Jobs();
+            JS_SQL_Jobs BBB = new JS_SQL_Jobs();
+            JS_SQL_Jobs CCC = new JS_SQL_Jobs();
 
 
             for (int i = 0; i < Convert.ToInt32(txt_QTY.Text); i++)
